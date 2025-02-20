@@ -42,7 +42,7 @@ class OrModule:
         return 1 if x >= 0 else 0
     
     def predict(self, input_data):
-        with open('Or_result.pkl', 'wb') as f:
+        with open('Or_result.pkl', 'rb') as f:
             data = pickle.load(f)
 
         self.weights = data['weight']
