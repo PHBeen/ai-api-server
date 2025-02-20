@@ -36,7 +36,8 @@ class OrModule:
         }
 
         with open('Or_result.pkl','wb') as f:
-            pickle.dump(data,f)     
+            pickle.dump(data, f)
+  
 
     def step_function(self, x):
         return 1 if x >= 0 else 0

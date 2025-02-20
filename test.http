@@ -1,0 +1,5 @@
+POST https://fantastic-waddle-g4qw7p5v7xrr3wp5r-8000.app.github.dev/train
+
+###
+
+GET https://fantastic-waddle-g4qw7p5v7xrr3wp5r-8000.app.github.dev/predict/left/0/right/0
