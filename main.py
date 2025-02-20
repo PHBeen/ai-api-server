@@ -1,10 +1,11 @@
 from typing import Union
 from fastapi import FastAPI
 
-import model
+import model_and
+import model_or
 
-model = model.AndModel()
-
+model_and = model_and.AndModel()
+model_or = model_or.OrModule()
 
 #클래스 생성자. app변수에 들어가게 됨.
 app = FastAPI()
@@ -20,13 +21,15 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id" : item_id, "q": q}
 
+#아래 두개는 model_and와 관련된 코드.
 @app.get("/predict/left/{left}/right/{right}")
 def predict(left: int, right : int):
-    model.train()
-    result = model.predict([left,right])
-    return {"result" : result}
+    result1 = model_and.predict([left,right])
+    result2 = model_or.predict([left,right])
+    return {"And" : result1, "OR" : result2}
 
-@app.get("/train")
+@app.post("/train")
 def train():
-    model.train()
+    model_and.train()
+    model_or.train()
     return {"result" : "OK"}
